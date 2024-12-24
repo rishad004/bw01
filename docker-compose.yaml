@@ -1,0 +1,50 @@
+version: '3.9'
+services:
+  postgres-multidb:
+    image: postgres:14
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1111
+      POSTGRES_DB: bw80micro01 
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  redis:
+    image: redis:7
+    container_name: redis-service
+    ports:
+      - "6379:6379"
+    networks:
+      - app-network
+    volumes:
+      - redis-data:/data
+
+  apigateway:
+    build: ./apiGateway
+    network_mode: "host"
+    container_name: rishad004/bw01_apigateway
+
+  microservice-01:
+    build: ./microservice-01
+    network_mode: "host"
+    container_name: rishad004/bw01_microservice-01
+    depends_on:
+      - postgres-multidb
+
+  microservice-02:
+    build: ./microservice-02
+    network_mode: "host"
+    container_name: rishad004/bw01_microservice-02
+      
+volumes:
+  postgres-data:
+  redis-data:
+
+networks:
+  app-network:
+    driver: bridge
