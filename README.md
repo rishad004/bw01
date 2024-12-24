@@ -91,11 +91,11 @@ The Method Execution supports the following operations:
 2. **Retrieve a User by ID**  
    - Endpoint: `GET /user/fetch`  
     - Sample Request:  
-     ```json
-     {
-       "id": 1,
-     }
-     ```
+      ```json
+      {
+        "id": 1,
+      }
+      ```
 
 3. **Update User Details**  
    - Endpoint: `PUT /user/update/:id`
