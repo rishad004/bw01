@@ -24,7 +24,7 @@ func Config(r *mux.Router) {
 	routers.Routers(r, hanlder)
 
 	log.Println("ApiGateway listening on port :8080")
-	http.ListenAndServe("localhost:8080", r)
+	http.ListenAndServe("0.0.0.0:8080", r)
 }
 
 func Micro01Conn() (*grpc.ClientConn, m01_pb.Micro01Client) {
