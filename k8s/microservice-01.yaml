@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: bw01-microservice-01
-          image: rishad004/bw01-microservice-01:latest
+          image: rishad004/bw01_microservice-01:latest
           ports:
             - containerPort: 50051
 ---
