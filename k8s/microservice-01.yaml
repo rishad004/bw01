@@ -1,32 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bw01_microservice-01-deployment
+  name: bw01-microservice-01-deployment
   labels:
-    app: bw01_microservice-01
+    app: bw01-microservice-01
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: bw01_microservice-01
+      app: bw01-microservice-01
   template:
     metadata:
       labels:
-        app: bw01_microservice-01
+        app: bw01-microservice-01
     spec:
       containers:
-        - name: bw01_microservice-01
-          image: rishad004/bw01_bw01_microservice-01:latest
+        - name: bw01-microservice-01
+          image: rishad004/bw01-microservice-01:latest
           ports:
             - containerPort: 50051
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: bw01_microservice-01-service
+  name: bw01-microservice-01-service
 spec:
   selector:
-    app: bw01_microservice-01
+    app: bw01-microservice-01
   ports:
     - protocol: TCP
       port: 50051

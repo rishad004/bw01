@@ -3,6 +3,7 @@ package db
 import (
 	"fmt"
 
+	"github.com/rishad004/bw01/microservice-01/pkg/domain"
 	"github.com/spf13/viper"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -17,7 +18,7 @@ func PsqlConn() (*gorm.DB, error) {
 		fmt.Println("Connect to Psql")
 	}
 
-	db.AutoMigrate()
+	db.AutoMigrate(&domain.User{})
 
 	return db, nil
 }

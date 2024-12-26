@@ -50,7 +50,7 @@ func Micro01Start(src *service.Service) error {
 }
 
 func Micro02Conn() (*grpc.ClientConn, m02_pb.Micro02Client) {
-	connM02, err := grpc.Dial("m02-service:50052", grpc.WithInsecure())
+	connM02, err := grpc.Dial("bw01-microservice-02-service:50052", grpc.WithInsecure())
 	if err != nil {
 		log.Fatal("Failed to connect to microservice02 service:", err)
 	}

@@ -23,23 +23,6 @@ services:
       - app-network
     volumes:
       - redis-data:/data
-
-  apigateway:
-    build: ./apiGateway
-    network_mode: "host"
-    container_name: rishad004/bw01_apigateway
-
-  microservice-01:
-    build: ./microservice-01
-    network_mode: "host"
-    container_name: rishad004/bw01_microservice-01
-    depends_on:
-      - postgres-multidb
-
-  microservice-02:
-    build: ./microservice-02
-    network_mode: "host"
-    container_name: rishad004/bw01_microservice-02
       
 volumes:
   postgres-data:

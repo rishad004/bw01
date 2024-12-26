@@ -27,7 +27,7 @@ func (r *repo) UserCreate(name, email string) (int32, error) {
 		Email: email,
 	}
 
-	if err := r.DB.Create(user).Error; err != nil {
+	if err := r.DB.Create(&user).Error; err != nil {
 		return 0, err
 	}
 

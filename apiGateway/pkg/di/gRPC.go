@@ -28,7 +28,7 @@ func Config(r *mux.Router) {
 }
 
 func Micro01Conn() (*grpc.ClientConn, m01_pb.Micro01Client) {
-	connM01, err := grpc.Dial("m01-service:50051", grpc.WithInsecure())
+	connM01, err := grpc.Dial("bw01-microservice-01-service:50051", grpc.WithInsecure())
 	if err != nil {
 		log.Fatal("Failed to connect to microservice01 service:", err)
 	}
@@ -39,7 +39,7 @@ func Micro01Conn() (*grpc.ClientConn, m01_pb.Micro01Client) {
 }
 
 func Micro02Conn() (*grpc.ClientConn, m02_pb.Micro02Client) {
-	connM02, err := grpc.Dial("m02-service:50052", grpc.WithInsecure())
+	connM02, err := grpc.Dial("bw01-microservice-02-service:50052", grpc.WithInsecure())
 	if err != nil {
 		log.Fatal("Failed to connect to microservice02 service:", err)
 	}

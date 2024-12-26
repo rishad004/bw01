@@ -10,8 +10,8 @@ func Routers(r *mux.Router, h *handler.Handler) {
 	// microservice-01
 	r.HandleFunc("/user/create", h.UserCreate).Methods("POST")
 	r.HandleFunc("/user/fetch", h.UserFetch).Methods("GET")
-	r.HandleFunc("/user/update", h.UserCreate).Methods("PUT")
-	r.HandleFunc("/user/delete", h.UserCreate).Methods("DELETE")
+	r.HandleFunc("/user/update", h.UserUpdate).Methods("PUT")
+	r.HandleFunc("/user/delete", h.UserDelete).Methods("DELETE")
 
 	// microservice-02
 	r.HandleFunc("/method", h.Method).Methods("POST")
